@@ -8,4 +8,8 @@ describe Themes do
   describe 'attribute#email' do
     it { Themes.email.should == 'test@test.cat' }
   end
+
+  describe 'rails configurations' do
+    it { expect(ActionMailer::Base.default).to include(from: 'test@test.cat') }
+  end
 end
