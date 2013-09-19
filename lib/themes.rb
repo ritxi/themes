@@ -7,3 +7,5 @@ module Themes
   mattr_accessor :email
   @@email = nil
 end
+
+require 'themes/engine'
