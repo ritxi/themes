@@ -11,5 +11,7 @@ describe Themes do
 
   describe 'rails configurations' do
     it { expect(ActionMailer::Base.default).to include(from: 'test@test.cat') }
+
+    it { expect(ActionController::Base.instance_methods).to include(:current_theme) }
   end
 end

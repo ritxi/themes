@@ -9,3 +9,4 @@ module Themes
 end
 
 require 'themes/engine'
+require 'themes/helpers'
