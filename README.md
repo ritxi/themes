@@ -6,10 +6,10 @@ Add simple themes to your rails applications
 
   - allow app to load diferent configuration depending on theme
   - Load theme using APP_THEME environment variable
+  - Load views based on theme directory
 
 ## Wished features:
 
-  - Load views based on theme directory
   - Use differnt theme depending on domain name
 
 

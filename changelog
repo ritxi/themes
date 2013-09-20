@@ -1,0 +1,15 @@
+Themes Engine Changelog
+=======================
+
+v0.0.2
+-------
+
+- Load path for themed views under views/themes/THEME_NAME. It applies to controllers and mailers.
+
+v0.0.1
+-------
+
+- Mailers default from set to theme configured email
+- Allow app to load diferent configuration depending on theme
+- Load theme using APP_THEME environment variable
+
