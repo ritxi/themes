@@ -10,3 +10,4 @@ end
 
 require 'themes/engine'
 require 'themes/helpers'
+require 'themes/paths'

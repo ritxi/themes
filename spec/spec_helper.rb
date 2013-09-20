@@ -4,7 +4,7 @@ ENV["APP_THEME"] = 'test'
 
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 #require "rails/test_help"
-#require "rspec/rails"
+require "rspec/rails"
 require 'rspec/expectations'
 require 'themes'
 
@@ -25,6 +25,7 @@ RSpec.configure do |config|
   #config.use_transactional_fixtures = false
 
   config.include RSpec::Matchers
+  config.include RSpec::Rails::ControllerExampleGroup, type: :controller
 
 
 
