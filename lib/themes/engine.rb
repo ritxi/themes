@@ -14,11 +14,13 @@ module Themes
     initializer "themes.insert_helpers", after: 'themes.configure_mailers' do |app|
       ActionController::Base.send(:include,Themes::Helpers)
       ActionController::Base.send(:extend,Themes::Helpers)
+      ActionMailer::Base.send(:extend,Themes::Helpers)
     end
 
     initializer "themes.add_views_path", after: "themes.insert_helpers" do |app|
       ActionController::Base.send(:extend, Themes::Paths)
       ActionController::Base.send(:include, Themes::Paths)
+      ActionMailer::Base.send(:include, Themes::Paths)
     end
   end
 end
