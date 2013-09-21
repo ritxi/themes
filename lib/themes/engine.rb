@@ -1,8 +1,12 @@
 module Themes
+  class Loader; end;
+
   class Engine < ::Rails::Engine
     config.theme = Themes
 
     initializer "themes.setup_theme", before: 'action_mailer.set_configs' do |app|
+      Themes::Loader.extend(Themes::Environments)
+
       require Rails.root.join('config', 'themes', ENV['APP_THEME'])
       Themes::Loader.configure(app)
     end

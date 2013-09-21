@@ -6,8 +6,10 @@ module Themes
 
   mattr_accessor :email
   @@email = nil
+
+  autoload :Helpers, 'themes/helpers'
+  autoload :Paths, 'themes/paths'
+  autoload :Environments, 'themes/environments'
 end
 
 require 'themes/engine'
-require 'themes/helpers'
-require 'themes/paths'

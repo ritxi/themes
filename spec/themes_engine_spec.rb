@@ -14,4 +14,14 @@ describe Themes do
 
     it { expect(ActionController::Base.instance_methods).to include(:current_theme) }
   end
+
+  describe 'theme environment configuration' do
+    before do
+      Themes::Loader.test { @env_test = true }
+      Themes::Loader.production { @env_production = true }
+    end
+
+    it { @env_production.should be_false }
+    it { @env_test.should be_true }
+  end
 end
