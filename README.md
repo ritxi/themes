@@ -13,3 +13,6 @@ Add simple themes to your rails applications
   - Use differnt theme depending on domain name
 
 
+## Code Status
+
+* [![Build Status](https://api.travis-ci.org/ritxi/themes.png)](https://travis-ci.org/ritxi/themes)
