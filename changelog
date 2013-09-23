@@ -1,5 +1,10 @@
 Themes Engine Changelog
 =======================
+v0.03
+------
+
+- Add generator to create new themes
+- Let theme configuration file to load per environment configurations
 
 v0.0.2
 -------
