@@ -11,4 +11,8 @@ gemspec
 # your gem to rubygems.org.
 
 # To use debugger
-# gem 'debugger'
+
+group :test do
+  gem 'debugger'
+  gem 'generator_spec', git: 'https://github.com/stevehodgkiss/generator_spec.git'
+end

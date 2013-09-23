@@ -5,6 +5,7 @@ ENV["APP_THEME"] = 'test'
 require File.expand_path("../dummy/config/environment.rb",  __FILE__)
 #require "rails/test_help"
 require "rspec/rails"
+require 'generator_spec'
 require 'rspec/expectations'
 require 'themes'
 
@@ -27,6 +28,9 @@ RSpec.configure do |config|
   config.include RSpec::Matchers
   config.include RSpec::Rails::ControllerExampleGroup, type: :controller
 
+  config.include GeneratorSpec::GeneratorExampleGroup, type: :generator, example_group: {
+    file_path: config.escaped_path(%w[spec generators])
+  }
 
 
   # == Mock Framework
