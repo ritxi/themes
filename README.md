@@ -67,3 +67,4 @@ Folders to place views files and assets will be created.
 ## Code Status
 
 * [![Build Status](https://api.travis-ci.org/ritxi/themes.png)](https://travis-ci.org/ritxi/themes)
+* [![Coverage Status](https://coveralls.io/repos/ritxi/themes/badge.png)](https://coveralls.io/r/ritxi/themes)

@@ -1,3 +1,14 @@
+require 'coveralls'
+Coveralls.wear!
+
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
+  SimpleCov::Formatter::HTMLFormatter,
+  Coveralls::SimpleCov::Formatter
+]
+SimpleCov.start do
+  add_filter '/spec/'
+end
+
 # Configure Rails Envinronment
 ENV["RAILS_ENV"] = "test"
 ENV["APP_THEME"] = 'test'
