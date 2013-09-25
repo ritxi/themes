@@ -3,7 +3,7 @@ module Themes
     def list
       @list ||= Dir.entries(Rails.root.join('config', 'environments').to_s).
         select{ |f| f.match /.*\.rb/ }.
-          map{|f| File.basename(f, '.rb').to_sym}
+          map{|f| File.basename(f, '.rb').to_sym}.sort
     end
 
     def method_missing(method_name, *arguments, &block)
