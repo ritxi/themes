@@ -1,6 +1,12 @@
 Themes Engine Changelog
 =======================
-v0.03
+v0.0.4
+------
+
+- themes.gemspec update
+- Add test coverage
+
+v0.0.3
 ------
 
 - Add generator to create new themes
