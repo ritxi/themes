@@ -13,12 +13,15 @@ end
 ENV["RAILS_ENV"] = "test"
 ENV["APP_THEME"] = 'test'
 
-require File.expand_path("../dummy3.2/config/environment.rb",  __FILE__)
+require File.expand_path("../dummy#{ENV['RAILS_VERSION']}/config/environment.rb",  __FILE__)
 #require "rails/test_help"
 require "rspec/rails"
 require 'generator_spec'
 require 'rspec/expectations'
 require 'rspec/active_model/mocks'
+if Rails::VERSION::MAJOR >= 5
+  require 'rails-controller-testing'
+end
 require 'themes'
 
 #Rails.backtrace_cleaner.remove_silencers!

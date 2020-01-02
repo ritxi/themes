@@ -12,6 +12,8 @@ rescue LoadError
   RDoc::Task = Rake::RDocTask
 end
 
+require 'wwtd/tasks'
+
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'Themes'
@@ -31,4 +33,3 @@ Coveralls::RakeTask.new('coveralls:push')
 RSpec::Core::RakeTask.new(:spec)
 
 task :default => :spec
-

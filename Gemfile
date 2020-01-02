@@ -1,4 +1,4 @@
-source "http://rubygems.org"
+source "https://rubygems.org"
 
 # Declare your gem's dependencies in themes.gemspec.
 # Bundler will treat runtime dependencies like base dependencies, and
@@ -15,5 +15,4 @@ gemspec
 group :test do
   gem 'test-unit'
   gem 'byebug'
-  gem 'generator_spec', git: 'https://github.com/stevehodgkiss/generator_spec.git'
 end

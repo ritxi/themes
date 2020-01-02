@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
   s.license = 'MIT'
 
-  s.add_dependency "rails", "~> 3.2.11"
+  s.add_dependency "rails"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "generator_spec"
@@ -27,4 +27,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "fuubar"
   s.add_development_dependency "nyan-cat-formatter"
   s.add_development_dependency 'coveralls'
+  s.add_development_dependency 'wwtd'
+
+  s.add_development_dependency 'test-unit'
+  s.add_development_dependency 'byebug'
 end

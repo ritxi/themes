@@ -1,4 +1,12 @@
 language: ruby
-rvm:
-  - 2.0.0
-  - 1.9.3
+cache: bundler
+rbenv:
+  - 2.5.7
+matrix:
+  include:
+    - gemfile: gemfiles/Gemfile-5.2
+      env: RAILS_VERSION=5
+    - gemfile: gemfiles/Gemfile-4.2
+      env: RAILS_VERSION=4
+    - gemfile: gemfiles/Gemfile-3.2
+      env: RAILS_VERSION=3
