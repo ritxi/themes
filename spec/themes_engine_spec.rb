@@ -2,11 +2,11 @@ require 'spec_helper'
 
 describe Themes do
   describe 'attribute#name' do
-    it { Themes.name.should == 'test' }
+    it { expect(Themes.name).to eq('test') }
   end
 
   describe 'attribute#email' do
-    it { Themes.email.should == 'test@test.cat' }
+    it { expect(Themes.email).to eq('test@test.cat') }
   end
 
   describe 'rails configurations' do
@@ -21,7 +21,7 @@ describe Themes do
       Themes::Loader.production { @env_production = true }
     end
 
-    it { @env_production.should be_false }
-    it { @env_test.should be_true }
+    it { expect(@env_production).to be_falsey }
+    it { expect(@env_test).to be(true) }
   end
 end

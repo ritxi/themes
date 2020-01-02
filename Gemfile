@@ -13,6 +13,7 @@ gemspec
 # To use debugger
 
 group :test do
-  gem 'debugger'
+  gem 'test-unit'
+  gem 'byebug'
   gem 'generator_spec', git: 'https://github.com/stevehodgkiss/generator_spec.git'
 end

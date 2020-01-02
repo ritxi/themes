@@ -13,11 +13,12 @@ end
 ENV["RAILS_ENV"] = "test"
 ENV["APP_THEME"] = 'test'
 
-require File.expand_path("../dummy/config/environment.rb",  __FILE__)
+require File.expand_path("../dummy3.2/config/environment.rb",  __FILE__)
 #require "rails/test_help"
 require "rspec/rails"
 require 'generator_spec'
 require 'rspec/expectations'
+require 'rspec/active_model/mocks'
 require 'themes'
 
 #Rails.backtrace_cleaner.remove_silencers!
@@ -33,15 +34,15 @@ require 'themes'
 RSpec.configure do |config|
   # Remove this line if you don't want RSpec's should and should_not
   # methods or matchers
-
+  config.raise_errors_for_deprecations!
   #config.use_transactional_fixtures = false
 
   config.include RSpec::Matchers
   config.include RSpec::Rails::ControllerExampleGroup, type: :controller
 
-  config.include GeneratorSpec::GeneratorExampleGroup, type: :generator, example_group: {
-    file_path: config.escaped_path(%w[spec generators])
-  }
+  config.include GeneratorSpec::GeneratorExampleGroup,
+                 type: :generator,
+                 file_path: config.escaped_path(%w[spec generators])
 
 
   # == Mock Framework

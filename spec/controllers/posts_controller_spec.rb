@@ -1,7 +1,7 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe PostsController, controller: true do
+describe PostsController, type: :controller do
   describe "#index" do
     before { get :index }
 

@@ -38,8 +38,8 @@ FILE
   end
 
   it do
-    expect(File.exists?("#{destination_root}/app/assets/javascripts/brand_new_theme")).to be_true
-    expect(File.exists?("#{destination_root}/app/assets/stylesheets/brand_new_theme")).to be_true
-    expect(File.exists?("#{destination_root}/app/views/themes/brand_new_theme/layouts")).to be_true
+    expect(File.exists?("#{destination_root}/app/assets/javascripts/brand_new_theme")).to be(true)
+    expect(File.exists?("#{destination_root}/app/assets/stylesheets/brand_new_theme")).to be(true)
+    expect(File.exists?("#{destination_root}/app/views/themes/brand_new_theme/layouts")).to be(true)
   end
 end

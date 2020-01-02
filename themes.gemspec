@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "generator_spec"
   s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "rspec-activemodel-mocks"
   s.add_development_dependency "fuubar"
   s.add_development_dependency "nyan-cat-formatter"
   s.add_development_dependency 'coveralls'
