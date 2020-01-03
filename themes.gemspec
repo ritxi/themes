@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
   s.license = 'MIT'
 
-  s.add_dependency "rails"
+  s.add_dependency "rails", ">= 3.2"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "generator_spec"
