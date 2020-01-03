@@ -19,6 +19,7 @@ Gem::Specification.new do |s|
   s.license = 'MIT'
 
   s.add_dependency "rails", ">= 3.2"
+  s.add_dependency "zeitwerk"
 
   s.add_development_dependency "sqlite3"
   s.add_development_dependency "generator_spec"

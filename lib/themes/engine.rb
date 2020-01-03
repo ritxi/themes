@@ -1,6 +1,4 @@
 module Themes
-  class Loader; end;
-
   class Engine < ::Rails::Engine
     config.theme = Themes
 
