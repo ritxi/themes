@@ -6,10 +6,12 @@ end
 appraise "rails-4" do
   gem "rails", "4.2.11"
   gem "sqlite3", "~> 1.3.6"
+  gem 'sprockets', "3.7.2"
 end
 
 appraise "rails-5" do
   gem "rails", "5.2.4"
+  gem 'sprockets', "3.7.2"
 end
 
 appraise "rails-6" do
