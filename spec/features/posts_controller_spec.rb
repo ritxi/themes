@@ -1,17 +1,13 @@
 # encoding: utf-8
 require 'spec_helper'
 
-describe PostsController, type: :controller do
+describe PostsController, type: :feature do
   describe "#index" do
-    before { get :index }
-
-    it { expect(response).to have_rendered('posts/index') }
+    before { visit '/posts' }
 
     context "render_views with theme custom views" do
-      render_views
-
-      it { expect(response.body).to match /Posts index from theme/m }
-      it { expect(response.body).to match /Test theme layout/m }
+      it { expect(page).to have_content /Posts index from theme/m }
+      it { expect(page).to have_content /Test theme layout/m }
     end
 
     context "render_views with default views" do

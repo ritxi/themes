@@ -19,9 +19,7 @@ require "rspec/rails"
 require 'generator_spec'
 require 'rspec/expectations'
 require 'rspec/active_model/mocks'
-if Rails::VERSION::MAJOR >= 5
-  require 'rails-controller-testing'
-end
+require 'capybara/rails'
 require 'themes'
 
 #Rails.backtrace_cleaner.remove_silencers!
@@ -41,7 +39,6 @@ RSpec.configure do |config|
   #config.use_transactional_fixtures = false
 
   config.include RSpec::Matchers
-  config.include RSpec::Rails::ControllerExampleGroup, type: :controller
 
   config.include GeneratorSpec::GeneratorExampleGroup,
                  type: :generator,
