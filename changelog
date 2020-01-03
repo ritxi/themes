@@ -1,5 +1,10 @@
 Themes Engine Changelog
 =======================
+v0.0.5
+------
+
+- Add testing with multiple ruby/rails versions
+
 v0.0.4
 ------
 
@@ -23,4 +28,3 @@ v0.0.1
 - Mailers default from set to theme configured email
 - Allow app to load diferent configuration depending on theme
 - Load theme using APP_THEME environment variable
-
