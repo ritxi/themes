@@ -4,9 +4,9 @@ rbenv:
   - 2.5.7
 matrix:
   include:
-    - gemfile: gemfiles/Gemfile-5.2
+    - gemfile: gemfiles/rails_5.gemfile
       env: RAILS_VERSION=5
-    - gemfile: gemfiles/Gemfile-4.2
+    - gemfile: gemfiles/rails_4.gemfile
       env: RAILS_VERSION=4
-    - gemfile: gemfiles/Gemfile-3.2
+    - gemfile: gemfiles/rails_3.2.gemfile
       env: RAILS_VERSION=3

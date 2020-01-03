@@ -33,4 +33,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'test-unit'
   s.add_development_dependency 'byebug'
   s.add_development_dependency 'capybara'
+  s.add_development_dependency 'appraisal'
 end
