@@ -11,8 +11,3 @@ gemspec
 # your gem to rubygems.org.
 
 # To use debugger
-
-group :test do
-  gem 'test-unit'
-  gem 'byebug'
-end
