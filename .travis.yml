@@ -4,6 +4,12 @@ matrix:
   include:
     - gemfile: gemfiles/rails_6.gemfile
       env: RAILS_VERSION=6
+      rvm: 2.7.0
+    - gemfile: gemfiles/rails_6.gemfile
+      env: RAILS_VERSION=6
+      rvm: 2.6.5
+    - gemfile: gemfiles/rails_6.gemfile
+      env: RAILS_VERSION=6
       rvm: 2.5.7
 
     - gemfile: gemfiles/rails_5.gemfile
