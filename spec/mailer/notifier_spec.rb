@@ -3,7 +3,8 @@
 describe Notifier do
   context "with custom" do
     let(:user) { mock_model("User", email: 'test@test.cat') }
-    subject { Notifier.wellcome_message(user) }
+    subject { Themes.as('test') { Notifier.wellcome_message(user) } }
+
 
     describe "#body" do
       it { expect(subject.body).to match /wellcome to this awsome app themed message/m}

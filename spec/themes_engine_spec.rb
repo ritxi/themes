@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Themes do
+  before do
+    Themes.themes_list['test'].load
+  end
   describe 'attribute#name' do
     it { expect(Themes.name).to eq('test') }
   end
@@ -17,8 +20,8 @@ describe Themes do
 
   describe 'theme environment configuration' do
     before do
-      Themes::Loader.test { @env_test = true }
-      Themes::Loader.production { @env_production = true }
+      TestLoader.test { @env_test = true }
+      TestLoader.production { @env_production = true }
     end
 
     it { expect(@env_production).to be_falsey }
