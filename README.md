@@ -26,10 +26,9 @@ It will generate a configuration file.
 ```ruby
 # encoding: utf-8
 
-class Themes::Loader
-  def self.configure(app)
-    app.config.theme.name = 'my_theme'
-    app.config.theme.email = 'sales@company.com'
+class MyThemeLoader
+  def self.configure
+    Themes.email = 'sales@company.com'
 
     development do
       # Place development environment stuff here
@@ -53,16 +52,18 @@ Folders to place views files and assets will be created.
 - app/assets/stylesheets/my_theme
 - app/views/themes/my_theme
 
+## Sending Themed emails
+
+Wherever you call deliver email enclose it like this:
+```ruby
+Theme.as('my_theme') { Notifier.wellcome_message(user) }
+```
+
 ## Main features:
 
   - allow app to load diferent configuration depending on theme
   - Load theme using APP_THEME environment variable
   - Load views based on theme directory
-
-## Wished features:
-
-  - Use differnt theme depending on domain name
-
 
 ## Code Status
 
