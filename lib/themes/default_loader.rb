@@ -11,6 +11,7 @@ module Themes
         ActionController::Base._view_paths = Themes.original_controller_path
 
         Themes.name = 'default'
+        Themes.config = nil
       end
     end
   end

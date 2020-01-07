@@ -14,12 +14,25 @@ module Themes
       app.middleware.use Themes::Middleware
     end
 
-    initializer 'themes.setup_theme', after: 'themes.middleware' do
+    initializer 'themes.setup_theme', after: 'themes.middleware' do |app|
       Dir.glob(Rails.root.join('config', 'themes', '*_loader.rb')) do |file|
         basename = File.basename(file, '.rb')
         loader = basename.classify.constantize
         loader.extend(Themes::Environments)
-        loader::HOSTNAMES.each { |host| Themes.themes_list[host] = loader }
+        app.config.theme.loaders[loader.name] = loader
+
+        if defined?(loader::HOSTNAMES)
+          loader::HOSTNAMES.each do |host|
+            Themes.themes_list[host] = loader
+          end
+        end
+      end
+
+      Themes.themes_list.empty? && app.theme.collection.each do |theme|
+        Themes.themes_list[theme.hostname] = lambda do
+          app.config.theme.loaders[theme.loader].call
+          Theme.config = theme
+        end
       end
     end
 

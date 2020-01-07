@@ -8,6 +8,9 @@ module Themes
   mattr_reader :themes_list
   @@themes_list = {}
 
+  mattr_reader :loaders
+  @@loaders = {}
+
   mattr_accessor :name
   @@name = nil
 
@@ -17,11 +20,21 @@ module Themes
   mattr_accessor :email
   @@email = nil
 
+  mattr_accessor :model
+  @@model = nil
+
+  mattr_accessor :config
+  @@config = nil
+
   mattr_accessor :original_mailer_path
   @@original_mailer_path = nil
 
   mattr_accessor :original_controller_path
   @@original_controller_path = nil
+
+  def self.collection
+    model.all
+  end
 
   def self.as(theme_name)
     "#{theme_name}_loader".classify.constantize.call
