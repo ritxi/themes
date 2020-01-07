@@ -5,6 +5,7 @@ module Themes
     initializer 'themes.path_setup', before: 'action_mailer.set_configs' do
       config.theme.loader.push_dir(Rails.root.join('config', 'themes'))
       config.theme.loader.setup
+      config.theme.themes_list.default = Themes::DefaultLoader
       config.theme.original_mailer_path = ActionMailer::Base._view_paths
       config.theme.original_controller_path = ActionController::Base._view_paths
     end

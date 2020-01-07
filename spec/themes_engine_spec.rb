@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Themes do
   before do
-    Themes.themes_list['test'].load
+    Themes.themes_list['test'].call
   end
   describe 'attribute#name' do
     it { expect(Themes.name).to eq('test') }

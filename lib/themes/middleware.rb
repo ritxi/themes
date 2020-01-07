@@ -5,8 +5,8 @@ module Themes
     end
 
     def call(env)
-      Themes.themes_list[env['SERVER_NAME']]&.load ||
-        Themes::DefaultLoader.load
+      Themes.themes_list[env['SERVER_NAME']].call
+
       @app.call(env)
     end
   end

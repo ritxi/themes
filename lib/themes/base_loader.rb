@@ -5,7 +5,7 @@ module Themes
         /(.*)Loader/.match(name)[1].underscore
       end
 
-      def load
+      def call
         ActionMailer::Base.default from: Themes.email,
                                    template_path: "app/views/themes/#{klass_name}"
 

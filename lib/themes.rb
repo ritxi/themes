@@ -11,6 +11,9 @@ module Themes
   mattr_accessor :name
   @@name = nil
 
+  mattr_accessor :default
+  @@default = nil
+
   mattr_accessor :email
   @@email = nil
 
@@ -21,7 +24,7 @@ module Themes
   @@original_controller_path = nil
 
   def self.as(theme_name)
-    "#{theme_name}_loader".classify.constantize.load
+    "#{theme_name}_loader".classify.constantize.call
     yield
     # .tap { Themes::DefaultLoader.load }
   end
