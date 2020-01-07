@@ -2,27 +2,30 @@ module Themes
   class Engine < ::Rails::Engine
     config.theme = Themes
 
-    initializer "themes.setup_theme", before: 'action_mailer.set_configs' do |app|
-      Themes::Loader.extend(Themes::Environments)
-
-      require Rails.root.join('config', 'themes', ENV['APP_THEME'])
-      Themes::Loader.configure(app)
+    initializer 'themes.path_setup', before: 'action_mailer.set_configs' do
+      config.theme.loader.push_dir(Rails.root.join('config', 'themes'))
+      config.theme.loader.setup
+      config.theme.original_mailer_path = ActionMailer::Base._view_paths
+      config.theme.original_controller_path = ActionController::Base._view_paths
     end
 
-    initializer "themes.configure_mailers", after: 'action_mailer.set_configs' do |app|
-      ActionMailer::Base.default from: app.config.theme.email, template_path: "app/views/themes/#{ENV['APP_THEME']}"
+    initializer 'themes.middleware', after: 'themes.path_setup' do |app|
+      app.middleware.use Themes::Middleware
     end
 
-    initializer "themes.insert_helpers", after: 'themes.configure_mailers' do |app|
-      ActionController::Base.send(:include,Themes::Helpers)
-      ActionController::Base.send(:extend,Themes::Helpers)
-      ActionMailer::Base.send(:extend,Themes::Helpers)
+    initializer 'themes.setup_theme', after: 'themes.middleware' do
+      Dir.glob(Rails.root.join('config', 'themes', '*_loader.rb')) do |file|
+        basename = File.basename(file, '.rb')
+        loader = basename.classify.constantize
+        loader.extend(Themes::Environments)
+        loader::HOSTNAMES.each { |host| Themes.themes_list[host] = loader }
+      end
     end
 
-    initializer "themes.add_views_path", after: "themes.insert_helpers" do |app|
-      ActionController::Base.send(:extend, Themes::Paths)
-      ActionController::Base.send(:include, Themes::Paths)
-      ActionMailer::Base.send(:include, Themes::Paths)
+    initializer 'themes.insert_helpers', after: 'themes.setup_theme' do |app|
+      ActionController::Base.include(Themes::Helpers)
+      ActionController::Base.extend(Themes::Helpers)
+      ActionMailer::Base.extend(Themes::Helpers)
     end
   end
 end
