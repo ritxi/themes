@@ -1,9 +1,8 @@
 # encoding: utf-8
 
-class Themes::Loader
-  def self.configure(app)
-    app.config.theme.name = '<%= theme_name %>'
-    app.config.theme.email = '<%= theme_email %>'<% Environments.list.each do |env_name| %>
+class <%= theme_name.classify %>
+  def self.configure
+    Themes.email = '<%= theme_email %>'<% Environments.list.each do |env_name| %>
 
     <%= env_name %> do
       # Place <%= env_name %> environment stuff here

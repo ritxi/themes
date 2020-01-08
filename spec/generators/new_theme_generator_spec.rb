@@ -16,10 +16,9 @@ describe Themes::NewGenerator do
       assert_file "config/themes/brand_new_theme.rb", <<-FILE
 # encoding: utf-8
 
-class Themes::Loader
-  def self.configure(app)
-    app.config.theme.name = 'brand_new_theme'
-    app.config.theme.email = 'ricard@forniol.cat'
+class BrandNewTheme
+  def self.configure
+    Themes.email = 'ricard@forniol.cat'
 
     development do
       # Place development environment stuff here
