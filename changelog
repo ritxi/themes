@@ -1,5 +1,11 @@
 Themes Engine Changelog
 =======================
+v0.1
+------
+
+- Allow serving themed views per hostname
+- Allow configuring theme via database model
+
 v0.0.5
 ------
 

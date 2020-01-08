@@ -1,3 +1,3 @@
 module Themes
-  VERSION = "0.0.5"
+  VERSION = '0.1'.freeze
 end
