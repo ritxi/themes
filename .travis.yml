@@ -23,6 +23,13 @@ matrix:
       rvm: 2.5.7
 
     - gemfile: gemfiles/rails_5.gemfile
+      env: RAILS_VERSION=5db
+      rvm: 2.5.7
+    - gemfile: gemfiles/rails_5.gemfile
+      env: RAILS_VERSION=5db
+      rvm: 2.4.6
+
+    - gemfile: gemfiles/rails_5.gemfile
       env: RAILS_VERSION=5
       rvm: 2.5.7
     - gemfile: gemfiles/rails_5.gemfile
