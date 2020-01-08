@@ -51,6 +51,13 @@ matrix:
       rvm: 2.4.6
 
     - gemfile: gemfiles/rails_3.2.gemfile
+      env: RAILS_VERSION=3db
+      rvm: 2.5.7
+    - gemfile: gemfiles/rails_3.2.gemfile
+      env: RAILS_VERSION=3db
+      rvm: 2.4.6
+
+    - gemfile: gemfiles/rails_3.2.gemfile
       env: RAILS_VERSION=3
       rvm: 2.5.7
     - gemfile: gemfiles/rails_3.2.gemfile
