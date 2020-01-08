@@ -19,7 +19,7 @@ module Themes
         basename = File.basename(file, '.rb')
         loader = basename.classify.constantize
         loader.extend(Themes::Environments)
-        app.config.theme.loaders[loader.name] = loader
+        app.config.theme.loaders[loader.klass_name] = loader
 
         if defined?(loader::HOSTNAMES)
           loader::HOSTNAMES.each do |host|
@@ -28,10 +28,10 @@ module Themes
         end
       end
 
-      Themes.themes_list.empty? && app.theme.collection.each do |theme|
+      Themes.themes_list.empty? && app.config.theme.collection.each do |theme|
         Themes.themes_list[theme.hostname] = lambda do
           app.config.theme.loaders[theme.loader].call
-          Theme.config = theme
+          Themes.config = theme
         end
       end
     end

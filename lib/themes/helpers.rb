@@ -5,7 +5,7 @@ module Themes
     extend ActiveSupport::Concern
 
     def current_theme
-      @current_theme ||= ::Themes.name
+      ::Themes.model.present? ? ::Themes.config : ::Themes
     end
 
     included do

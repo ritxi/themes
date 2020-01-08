@@ -33,7 +33,13 @@ module Themes
   @@original_controller_path = nil
 
   def self.collection
-    model.all
+    model_class&.all
+  end
+
+  def self.model_class
+    return unless model
+
+    model.to_s.classify.safe_constantize
   end
 
   def self.as(theme_name)
